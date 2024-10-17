@@ -29,8 +29,8 @@ var argv = minimist(
 var REMOTE_PORT = argv.remote   || argv.r || 9222
   , PORT        = argv.port     || argv.p || (REMOTE_PORT - 1)
   , OUTFILE     = argv.outfile  || argv.o 
-  , HOST        = 'http://127.0.0.1'
-  , WS_HOST     = 'ws://127.0.0.1'
+  , HOST        = 'http://0.0.0.0'
+  , WS_HOST     = 'ws://0.0.0.0'
 
 if (argv.h || argv.help) return usage();
 
@@ -135,4 +135,4 @@ server.on('listening', function onlisten() {
   log.info('server', '%s:%d', HOST, PORT);
 })
 
-server.listen(PORT)
+server.listen(PORT,"0.0.0.0")
